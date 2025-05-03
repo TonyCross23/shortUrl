@@ -1,4 +1,4 @@
-import { object, string } from "zod";
+import { object, string, TypeOf } from "zod";
 
 
 export const createShortUrlSchema =  object({
@@ -8,3 +8,5 @@ export const createShortUrlSchema =  object({
         }).url("Must be a valid URL")
     })
 })
+
+export type CreateShortUrlInput = TypeOf<typeof createShortUrlSchema>;

@@ -1,17 +1,19 @@
-import { NextFunction, Request, Response } from "express"
-import { AnyZodObject } from "zod"
+import { Request, Response, NextFunction } from "express";
+import { AnyZodObject } from "zod";
 
-
-const validationResource = (schema: AnyZodObject) => (req: Request,res: Response, next: NextFunction) => {
+const validate =
+  (schema: AnyZodObject) =>
+  (req: Request, res: Response, next: NextFunction): void => {
     try {
-        schema.parse({
-            body: req.body,
-            query: req.query,
-            params: req.params,
-          });
+      schema.parse({
+        body: req.body,
+        query: req.query,
+        params: req.params,
+      });
+      next();
     } catch (e: any) {
-        res.status(400).send(e.errors)
+       res.status(400).send(e.errors);
     }
-}
+  };
 
-export default validationResource
+export default validate;

@@ -1,5 +1,5 @@
 import {Express, Request, Response} from "express"
-import validationResource from "../middlewares/validationResource";
+import validate from "../middlewares/validationResource";
 import { createShortUrlSchema } from "../schemas/createShortUrl.schema";
 import { createShortUrl } from "../controllers/shortUrl.controller";
 
@@ -8,7 +8,7 @@ const routes = (app: Express) => {
      res.send("App is healthy");
   })
 
-  app.post("/api/url", validationResource(createShortUrlSchema), createShortUrl)
+  app.post("/api/url", validate(createShortUrlSchema), createShortUrl)
 }
 
 export default routes
