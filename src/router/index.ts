@@ -1,7 +1,7 @@
 import {Express, Request, Response} from "express"
 import validate from "../middlewares/validationResource";
 import { createShortUrlSchema } from "../schemas/createShortUrl.schema";
-import { createShortUrl } from "../controllers/shortUrl.controller";
+import { createShortUrl, handleRedirect } from "../controllers/shortUrl.controller";
 
 const routes = (app: Express) => {
   app.get("/healthcheck", (req: Request, res: Response) => {
@@ -9,6 +9,8 @@ const routes = (app: Express) => {
   })
 
   app.post("/api/url", validate(createShortUrlSchema), createShortUrl)
+
+  app.get("/:shortId", handleRedirect)
 }
 
 export default routes
