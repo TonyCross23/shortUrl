@@ -1,5 +1,5 @@
-import logger from "pino";
-import dayjs from "dayjs";
+import logger from 'pino';
+import dayjs from 'dayjs';
 
 const log = logger(
   {
@@ -9,7 +9,7 @@ const log = logger(
     timestamp: () => `,"time":"${dayjs().format()}"`,
   },
   logger.transport({
-    target: "pino-pretty",
+    target: 'pino-pretty',
     options: { colorize: true },
   })
 );
