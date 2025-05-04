@@ -5,6 +5,6 @@ dotenv.config()
 export default {
     port: 4000,
     dbUri: process.env.dbUri,
-    host: 'localhost',
+    // host: 'localhost',
     corsOrigin: "http://localhost:3000",
 }

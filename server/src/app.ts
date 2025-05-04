@@ -7,7 +7,7 @@ import routes from './router';
 import cors from 'cors';
 
 const port = config.get('port') as number;
-const host = config.get('host') as string;
+// const host = config.get('host') as string;
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(
 app.use(bodyParser.json());
 
 app.listen(port, () => {
-  log.info(`Server is running on http://${host}:${port}`);
+  log.info(`Server is running on http://localhost:${port}`);
   db();
   routes(app);
 });
