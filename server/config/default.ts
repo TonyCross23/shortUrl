@@ -1,6 +1,10 @@
+import dotenv from "dotenv"
+
+dotenv.config()
+
 export default {
     port: 4000,
-    dbUri: "mongodb://localhost:27017/short",
+    dbUri: process.env.dbUri,
     host: 'localhost',
     corsOrigin: "http://localhost:3000",
 }
