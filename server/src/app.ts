@@ -24,3 +24,5 @@ app.listen(port, () => {
   db();
   routes(app);
 });
+
+export default app
