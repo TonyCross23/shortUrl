@@ -7,7 +7,7 @@ import {
 } from '../controllers/shortUrl.controller';
 
 const routes = (app: Express) => {
-  app.get('/healthcheck', (req: Request, res: Response) => {
+  app.get('/', (req: Request, res: Response) => {
     res.send('App is healthy');
   });
 
